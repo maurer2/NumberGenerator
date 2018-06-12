@@ -1,0 +1,23 @@
+{
+  "name": "numbergenerator",
+  "version": "1.0.0",
+  "description": "Die Erstellung und Verwendung der Seite / des Codes dient nur zur privaten, legalen Forschungszwecken. Der Missbrauch, insbesondere die Verwendung fremder Nummern, ist natürlich nicht erlaubt.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polarvogel/NumberGenerator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/polarvogel/NumberGenerator/issues"
+  },
+  "homepage": "https://github.com/polarvogel/NumberGenerator#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}
