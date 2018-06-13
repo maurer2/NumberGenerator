@@ -4,7 +4,7 @@
   "description": "Die Erstellung und Verwendung der Seite / des Codes dient nur zur privaten, legalen Forschungszwecken. Der Missbrauch, insbesondere die Verwendung fremder Nummern, ist natürlich nicht erlaubt.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test-luhn": "mocha ./javascript/LuhnDigit.test.js"
   },
   "repository": {
     "type": "git",
