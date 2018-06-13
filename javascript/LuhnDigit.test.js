@@ -10,7 +10,7 @@ describe('calculate LuhnDigit', function () {
     expect(result).to.be.a('number');
   });
 
-  it('should return a number between 7 an 9 digits', function () {
+  it('should return a number between 1 and 9', function () {
     var number = 1234567;
     var result = getLuhnCheckDigit(number);
 
@@ -18,11 +18,19 @@ describe('calculate LuhnDigit', function () {
     expect(result).to.be.at.most(9);
   });
 
-  it('should return correct number', function () {
+  it('should return a single digit number', function () {
     var number = 1234567;
-    var checkDigit = 4;
     var result = getLuhnCheckDigit(number);
+    var resultLength = result.toString().length
 
-    expect(checkDigit).to.be.equal(result);
+    expect(resultLength).to.be.equal(1)
+  });
+
+  it('should return correct number', function () {
+    expect(getLuhnCheckDigit(123456789)).to.be.equal(7);
+    expect(getLuhnCheckDigit(987654321)).to.be.equal(7);
+    expect(getLuhnCheckDigit(12345678)).to.be.equal(2);
+    expect(getLuhnCheckDigit(87654321)).to.be.equal(6);
+    expect(getLuhnCheckDigit(5555555)).to.be.equal(1);
   });
 });
