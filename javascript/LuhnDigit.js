@@ -3,31 +3,33 @@ class LuhnChecker {
         this.num = num.toString().split('').reverse().join(''); // algorithm starts from the right
     }
 
-    getChecksumDigit() {
-        let sum = 0;
-        let isOdd = true;
-
-        for (let curChar of this.num) {
-            let addValue = parseInt(curChar, 10);
+    getChecksum() {
+        const sum = this.num.split('').reduce((total, current, index) => {
+            const isOdd = (index % 2) === 0;
+            let summand = parseInt(current, 10);
 
             if (isOdd) {
-                const doubleSummand = curChar * 2;
-                addValue = (doubleSummand > 9) ? (doubleSummand - 9) : doubleSummand
+                const doubleSummand = summand * 2;
+
+                summand = doubleSummand;
+
+                if (doubleSummand > 9) {
+                    summand = doubleSummand - 9;
+                }
             }
 
-            sum = sum + addValue;
-            isOdd = !isOdd;
-        }
+            return total + summand;
+        }, 0);
 
         const checksum = ((10 - (sum % 10)) % 10);
 
-        return checksum
+        return checksum;
     }
 }
 
 module.exports = function(number) {
     const checker = new LuhnChecker(number);
-    const num = checker.getChecksumDigit();
+    const num = checker.getChecksum();
 
     return num;
 };
@@ -35,7 +37,7 @@ module.exports = function(number) {
 if (require.main === module) {
     const param = process.argv.slice(2)[0];
     const checker = new LuhnChecker(param);
-    const num = checker.getChecksumDigit();
+    const num = checker.getChecksum();
 
     console.log(num);
 }

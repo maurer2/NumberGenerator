@@ -16,7 +16,16 @@
             "name": "Launch Luhn",
             "program": "${workspaceFolder}/javascript/LuhnDigit.js",
             "args": [
-                "1234567"
+                "123456123"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch PostNumber",
+            "program": "${workspaceFolder}/javascript/PostNumber.js",
+            "args": [
+                "121212555"
             ]
         },
     ]

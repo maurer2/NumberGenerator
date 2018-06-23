@@ -4,7 +4,9 @@
   "description": "Die Erstellung und Verwendung der Seite / des Codes dient nur zur privaten, legalen Forschungszwecken. Der Missbrauch, insbesondere die Verwendung fremder Nummern, ist natürlich nicht erlaubt.",
   "main": "index.js",
   "scripts": {
-    "test-luhn": "mocha ./javascript/LuhnDigit.test.js"
+    "test-luhn": "mocha ./javascript/LuhnDigit.test.js",
+    "test-postnumber": "mocha ./javascript/Postnumber.test.js",
+    "test": "npm run test-luhn && npm run test-postnumber"
   },
   "repository": {
     "type": "git",
