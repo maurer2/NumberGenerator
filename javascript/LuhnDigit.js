@@ -1,20 +1,15 @@
 class LuhnChecker {
     constructor(num) {
-        this.num = num;
+        this.num = num.toString().split('').reverse().join(''); // algorithm starts from the right
     }
 
-    getLuhnCheckDigit() {
-        var lastIndex = this.num.toString().length - 1 ;
-        var isOdd = true;
-        var sum = 0;
-        var curChar = '0';
-        var addValue = 0;
-        var multipliedDigit = 0;
+    getChecksumDigit() {
+        let sum = 0;
+        let isOdd = true;
 
-        this.num += "";
-
-        for (var n = lastIndex; n>=0; n--) {
-            curChar = this.num.charAt(n);
+        for (let curChar of this.num) {
+            let addValue = 0;
+            let multipliedDigit = 0;
 
             if (isOdd) {
                 multipliedDigit = curChar * 2;
@@ -27,24 +22,26 @@ class LuhnChecker {
             } else {
                 addValue = curChar;
             }
+
+            sum = sum + parseInt(addValue, 10);
             isOdd = !isOdd;
-            sum += parseInt(addValue);
         }
+
         return ((10 - (sum % 10)) % 10);
     }
 }
 
 module.exports = function(number) {
     const checker = new LuhnChecker(number);
-    const num = checker.getLuhnCheckDigit();
+    const num = checker.getChecksumDigit();
 
     return num;
-}
+};
 
 if (require.main === module) {
     const param = process.argv.slice(2)[0];
     const checker = new LuhnChecker(param);
-    const num = checker.getLuhnCheckDigit();
+    const num = checker.getChecksumDigit();
 
     console.log(num);
 }
