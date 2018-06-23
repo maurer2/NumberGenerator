@@ -8,26 +8,20 @@ class LuhnChecker {
         let isOdd = true;
 
         for (let curChar of this.num) {
-            let addValue = 0;
-            let multipliedDigit = 0;
+            let addValue = parseInt(curChar, 10);
 
             if (isOdd) {
-                multipliedDigit = curChar * 2;
-
-                if (multipliedDigit > 9) {
-                    addValue = multipliedDigit - 9;
-                } else {
-                    addValue = multipliedDigit;
-                }
-            } else {
-                addValue = curChar;
+                const doubleSummand = curChar * 2;
+                addValue = (doubleSummand > 9) ? (doubleSummand - 9) : doubleSummand
             }
 
-            sum = sum + parseInt(addValue, 10);
+            sum = sum + addValue;
             isOdd = !isOdd;
         }
 
-        return ((10 - (sum % 10)) % 10);
+        const checksum = ((10 - (sum % 10)) % 10);
+
+        return checksum
     }
 }
 
