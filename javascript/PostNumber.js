@@ -1,4 +1,4 @@
-import LuhnChecker from '../../numberGenerator/javascript/LuhnDigit';
+import LuhnChecker from '../../NumberGenerator/javascript/LuhnDigit';
 
 export default class PostnumberConverter {
   constructor() {
